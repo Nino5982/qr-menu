@@ -1,0 +1,47 @@
+/* ცვლადები (:root) */
+
+
+/* resert */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+ /* რესეტი (*, *::before...)  */
+ /* გლობალური სტილები (body, html) */
+  /* კონტეინერები და ზოგადი ელემენტები კომპონენტები (Header, Nav, Cards, Footer...) */
+ /* რესპონსივობა (Media Queries) */
