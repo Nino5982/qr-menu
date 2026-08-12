@@ -1,7 +1,4 @@
-/* ცვლადები (:root) */
-
-
-/* resert */
+@import url('./variables.css');
 
 *,
 *::before,
@@ -37,11 +34,40 @@ select {
 }
 
 html {
+    font-size: 10px;
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 24px;
+}
 
- /* რესეტი (*, *::before...)  */
- /* გლობალური სტილები (body, html) */
-  /* კონტეინერები და ზოგადი ელემენტები კომპონენტები (Header, Nav, Cards, Footer...) */
- /* რესპონსივობა (Media Queries) */
+.main-content {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    /* padding: 20px; */
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    color: var(--text-primary);
+
+}
+
+
+.box {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background-color: var(--card-bg);
+}
+
