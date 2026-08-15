@@ -10,6 +10,8 @@ const translations = {
     reservation_heading: "დაჯავშნე მაგიდა მარტივად",
     footer_text: "გმადლობთ, რომ გვესტუმრეთ",
     brand_desc: "ბისტრო და ლაუნჯი",
+    lang: "ქართული",
+    copyright: "© 2024 კულინარი. ყველა უფლება დაცულია.",
   },
   en: {
     brand_name: "CULINARY",
@@ -22,5 +24,7 @@ const translations = {
     reservation_heading: "Book a Table Easily",
     footer_text: "Thank you for visiting us",
     brand_desc: "BISTRO & LOUNGE",
+    lang: "English",
+    copyright: "© 2024 CULINARY.all rights reserved",
   },
 };

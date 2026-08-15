@@ -221,11 +221,19 @@ h3 {
 
 /* footer */
 .site-footer {
-    padding-top: 3.2rem;
+    padding: 3.2rem 0 4.8rem;
+    margin-bottom: 5.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* fonts */
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    letter-spacing: 1.2px;
+    color: var(--footer-text-color);
+    text-transform: uppercase;
 }
 
 .social-list {
@@ -233,7 +241,7 @@ h3 {
     align-items: center;
     justify-content: center;
     gap: 1.2rem;
-    margin-bottom: 2.9rem;
+    margin-bottom: 2rem;
 }
 
 .social-list__item a {
@@ -244,6 +252,12 @@ h3 {
     justify-content: center;
     border-radius: 10px;
 
+}
+
+/* lang switcher */
+.lang-switcher {
+    padding: 9px 11px;
+    margin-bottom: 11px;
 }
 
 .lang-toggle-btn {
@@ -263,7 +277,7 @@ h3 {
     font-size: 1.5rem;
     line-height: 1.5rem;
     letter-spacing: 1.2px;
-    color: var(--text-secondary);
+    color: var(--footer-text-color);
     text-transform: uppercase;
 }
 
@@ -276,10 +290,35 @@ h3 {
 
 
 }
-.lang-list-item{
+
+.lang-list-item {
     margin-bottom: 2rem;
+
+    cursor: pointer;
+}
+
+.lang-list-item::after {
+    width: 0%;
+    height: 1px;
+    background-color: var(--accent-color);
+    display: block;
+    content: "";
+    transition: width 0.3s ease;
+}
+
+.lang-list-item:hover::after {
+    width: 50%;
 }
 
 .lang-list .active {
     display: none;
+}
+
+.lang-list {
+    display: none;
+
+}
+
+.copyright {
+    /* color: var(--text-secondary); */
 }

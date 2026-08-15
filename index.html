@@ -176,8 +176,9 @@
           class="lang-toggle-btn"
           aria-haspopup="listbox"
           aria-expanded="false"
-          aria-label="choose-language">
-          <span class="current-lang">ქართული</span>
+          aria-label="Choose language"
+          title="Choose language">
+          <span class="current-lang" data-lang="ka">ქართული</span>
           <svg
             width="12"
             height="8"
@@ -189,18 +190,21 @@
               fill="currentColor" />
           </svg>
         </button>
-        <ul class="lang-list">
-          <li class="lang-list-item active" data-lang-value="ka">ქართული</li>
-          <li class="lang-list-item" data-lang-value="en">English</li>
-          <li class="lang-list-item" data-lang-value="rus">Russian</li>
+        <ul class="lang-list" role="list">
+          <li class="lang-list-item active" data-lang="ka">ქართული</li>
+          <li class="lang-list-item" data-lang="en">English</li>
+          <li class="lang-list-item" data-lang="ru">Русский</li>
         </ul>
       </div>
+      <p class="copyright" data-lang="copyright">
+        © 2024 კულინარი. ყველა უფლება დაცულია.
+      </p>
     </footer>
-    <div class="controls">
+    <!-- <div class="controls">
       <button id="theme-toggle" aria-label="Toggle dark and light theme">
         🌙 / ☀️
       </button>
-    </div>
+    </div> -->
     <script src="script.js"></script>
   </body>
 </html>
