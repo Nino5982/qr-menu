@@ -1,7 +1,6 @@
 :root {
     /* --- 1. COLORS (ფერის როლები) --- */
-    --bg-color: white
-    ;
+    --bg-color: #F8FAFC;
     --card-bg: #FFFFFFE5;
     --text-primary: #131313;
     --text-secondary: #737373;
@@ -9,7 +8,8 @@
     --accent-color: #4D5BFF;
     --accent-hover: #5653E9;
     --border-color: #E5E5E5;
-
+    --text-main: #FFFFFF;
+    --footer-text-color: #ADAAAA;
     /* --- 2. TYPOGRAPHY (შრიფტები) --- */
     --font-main: 'Inter', sans-serif;
 
@@ -33,6 +33,7 @@
     --text-secondary: #ADAAAA;
     --border-color: #242424;
     --shadow-card: 0px 1px 2px 0px #0000000D;
+    --footer-text-color: #ADAAAACC
 }
 
 
