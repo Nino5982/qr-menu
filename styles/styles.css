@@ -77,6 +77,11 @@ h3 {
     border-radius: var(--radius-lg);
     background-color: var(--card-bg);
     overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.box:hover {
+    box-shadow: 1px 2px 10px #13304e;
 }
 
 .btn {
@@ -234,6 +239,7 @@ h3 {
     letter-spacing: 1.2px;
     color: var(--footer-text-color);
     text-transform: uppercase;
+    text-align: center;
 }
 
 .social-list {
