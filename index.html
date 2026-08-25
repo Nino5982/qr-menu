@@ -126,7 +126,7 @@
             </svg>
           </div>
           <div class="card-content">
-            <h2 data-lang="reservation_title">რეზერვაცია</h2>
+            <h2 data-lang="reservation">რეზერვაცია</h2>
             <p data-lang="reservation_desc">
               დაჯავშნეთ მაგიდა განსაკუთრებული დღისთვის
             </p>
@@ -171,14 +171,14 @@
           /></a>
         </li>
       </ul>
-      <div class="lang-switcher" id="langSwitcher">
+      <div class="lang-switcher open" id="langSwitcher">
         <button
           class="lang-toggle-btn"
           aria-haspopup="listbox"
           aria-expanded="false"
           aria-label="Choose language"
           title="Choose language">
-          <span class="current-lang" data-lang="ka">ქართული</span>
+          <span class="current-lang" data-lang="lang">ქართული</span>
           <svg
             width="12"
             height="8"
@@ -191,7 +191,7 @@
           </svg>
         </button>
         <ul class="lang-list" role="list">
-          <li class="lang-list-item active" data-lang="ka">ქართული</li>
+          <li class="lang-list-item" data-lang="ka">ქართული</li>
           <li class="lang-list-item" data-lang="en">English</li>
           <li class="lang-list-item" data-lang="ru">Русский</li>
         </ul>
@@ -205,6 +205,6 @@
         🌙 / ☀️
       </button>
     </div> -->
-    <script src="script.js"></script>
+    <script type="module" src="./script/lang-sweacher.js"></script>
   </body>
 </html>

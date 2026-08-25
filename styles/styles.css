@@ -47,7 +47,7 @@ html {
 }
 
 body {
-    font-family: var(--font-main, 'Inter', sans-serif);
+    font-family: var(--font-main, sans-serif);
     background-color: var(--bg-color);
     color: var(--text-color);
     font-size: 1.6rem;
@@ -293,7 +293,7 @@ h3 {
 
 .lang-list {
     padding: 10px 15px;
-
+    display: none;
 
 }
 
@@ -316,13 +316,13 @@ h3 {
     width: 50%;
 }
 
+/* rodesac ena arCeuli */
 .lang-list .active {
     display: none;
 }
 
-.lang-list {
-    display: none;
-
+.lang-list.open {
+    display: block;
 }
 
 .copyright {

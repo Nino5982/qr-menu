@@ -11,7 +11,7 @@
     --text-main: #FFFFFF;
     --footer-text-color: #ADAAAA;
     /* --- 2. TYPOGRAPHY (შრიფტები) --- */
-    --font-main: 'Inter', sans-serif;
+    /* --font-main: 'Inter', sans-serif; */
 
     /* --- 3. BORDER RADIUS */
     --radius-sm: 22px;
