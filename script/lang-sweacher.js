@@ -5,28 +5,28 @@ const langContainer = document.querySelectorAll("[data-lang]");
 const langSwitcher = document.getElementById("langSwitcher");
 
 const langList = langSwitcher.querySelector(".lang-list");
+const changedLang = langList.querySelectorAll("li");
 
 const langToggleBtn = document.querySelector(".lang-toggle-btn");
 
 const currentLanguage = localStorage.getItem("appLang") || "ka";
-
+// localStorage.clear();
+clearActiveClass(langList.querySelector(`[data-lang="${currentLanguage}"]`));
 changeLang(currentLanguage);
 function changeLang(lang) {
-  //   let activeLang = langSwitcher
-  //     .querySelector(".active")
-    //     .getAttribute("data-lang"); //ka
-    
-
-    
   langContainer.forEach((elem) => {
-    let key = elem.getAttribute("data-lang"); 
-    elem.textContent = translations[lang][key];
+    let key = elem.getAttribute("data-lang");
+    if (translations[lang] && translations[lang][key]) {
+      elem.textContent = translations[lang][key];
+    } else {
+      console.warn(`თარგმანი აკლია: ${key}`);
+    }
   });
 }
 
 //  open list
-function openLangList() {
-  langList.classList.add("open");
+function toggleLangList() {
+  langList.classList.toggle("open");
 }
 
 // close list
@@ -35,20 +35,29 @@ function closeLangList() {
 }
 
 langToggleBtn.addEventListener("click", () => {
-  openLangList();
+  toggleLangList();
 });
 
 langList.addEventListener("click", (e) => {
   let pickedLang = e.target.getAttribute("data-lang"); //en
-  //1    ჩავწერო ლოქალ სტორიჯში
-  localStorage.setItem("appLang", pickedLang);
+
   if (pickedLang) {
-    let changedLang = langList.querySelectorAll("li");
-    for (const element of changedLang) {
-      element.classList.remove("active");
-    }
-    e.target.classList.add("active");
+    localStorage.setItem("appLang", pickedLang);
+    clearActiveClass(e.target);
     changeLang(pickedLang);
     closeLangList();
   }
+});
+
+//  არჩეული ენის შესაბამის ელემენტს დაედოს active კლასი, და დანარჩენ სხვას წაეშალოს.
+
+function clearActiveClass(activeElement) {
+  for (const element of changedLang) {
+    element.classList.remove("active");
+  }
+  activeElement.classList.add("active");
+}
+// თუ ქლიქი მოხდა გარეთ მენიუ დაიხუროს!
+document.addEventListener("click", (e) => {
+  console.log(e.target);
 });
