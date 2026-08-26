@@ -10,6 +10,8 @@
     --border-color: #E5E5E5;
     --text-main: #FFFFFF;
     --footer-text-color: #ADAAAA;
+    --dark-light: #323030e8;
+    ;
     /* --- 2. TYPOGRAPHY (შრიფტები) --- */
     /* --font-main: 'Inter', sans-serif; */
 
@@ -33,7 +35,9 @@
     --text-secondary: #ADAAAA;
     --border-color: #242424;
     --shadow-card: 0px 1px 2px 0px #0000000D;
-    --footer-text-color: #ADAAAACC
+    --footer-text-color: #ADAAAACC;
+    --dark-light: #9e9e9e57;
+    ;
 }
 
 

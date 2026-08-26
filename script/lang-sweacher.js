@@ -8,6 +8,7 @@ const langList = langSwitcher.querySelector(".lang-list");
 const changedLang = langList.querySelectorAll("li");
 
 const langToggleBtn = document.querySelector(".lang-toggle-btn");
+const overlay = document.getElementById("overlay");
 
 const currentLanguage = localStorage.getItem("appLang") || "ka";
 // localStorage.clear();
@@ -27,11 +28,13 @@ function changeLang(lang) {
 //  open list
 function toggleLangList() {
   langList.classList.toggle("open");
+  overlay.classList.toggle("overlay");
 }
 
 // close list
 function closeLangList() {
   langList.classList.remove("open");
+  overlay.classList.remove("overlay");
 }
 
 langToggleBtn.addEventListener("click", () => {
@@ -40,7 +43,6 @@ langToggleBtn.addEventListener("click", () => {
 
 langList.addEventListener("click", (e) => {
   let pickedLang = e.target.getAttribute("data-lang"); //en
-
   if (pickedLang) {
     localStorage.setItem("appLang", pickedLang);
     clearActiveClass(e.target);
