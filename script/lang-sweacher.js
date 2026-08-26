@@ -59,5 +59,7 @@ function clearActiveClass(activeElement) {
 }
 // თუ ქლიქი მოხდა გარეთ მენიუ დაიხუროს!
 document.addEventListener("click", (e) => {
-  console.log(e.target);
+  if (!langSwitcher.contains(e.target)) {
+    closeLangList();
+  }
 });
