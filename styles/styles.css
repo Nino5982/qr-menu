@@ -169,7 +169,7 @@ h3 {
 /* dark light  */
 
 .dark-light-mode {
-    background: var(--dark-light);
+    background: #3230303d;
     height: 50px;
     width: 94px;
     border-radius: 100px;
@@ -177,10 +177,7 @@ h3 {
     align-items: stretch;
     justify-content: space-between;
     padding: 3px;
-    position: absolute;
-    top: -18px;
-    right: -22px;
-    z-index: 999;
+
 }
 
 .dark-light-mode svg {
