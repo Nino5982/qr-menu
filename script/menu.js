@@ -6,7 +6,7 @@ const DISH_CSV_URL =
 const text = {
   ka: {
     title: "მენიუ",
-    loading: "მენიუ იტვირთება...",
+    loading: "მენიუ იტვირთება…",
     error: "მენიუს ჩატვირთვა ვერ მოხერხდა.",
     retry: "ხელახლა ცდა",
     empty: "მენიუ ამჟამად ცარიელია.",
@@ -14,7 +14,7 @@ const text = {
   },
   en: {
     title: "Menu",
-    loading: "Loading menu...",
+    loading: "Loading menu…",
     error: "The menu could not be loaded.",
     retry: "Retry",
     empty: "The menu is currently empty.",
@@ -22,7 +22,7 @@ const text = {
   },
   ru: {
     title: "Меню",
-    loading: "Загрузка меню...",
+    loading: "Загружаем меню…",
     error: "Не удалось загрузить меню.",
     retry: "Повторить",
     empty: "Меню сейчас пусто.",
@@ -31,6 +31,7 @@ const text = {
 };
 
 const statusElement = document.getElementById("menu-status");
+const loaderElement = document.getElementById("menu-loader");
 const titleElement = document.getElementById("menu-title");
 const dishesElement = document.getElementById("menu-dishes");
 
@@ -91,9 +92,11 @@ function parseCsv(csv) {
     return [];
   }
 
-  const headers = rows.shift().map((header, index) =>
-    (index === 0 ? header.replace(/^\uFEFF/, "") : header).trim(),
-  );
+  const headers = rows
+    .shift()
+    .map((header, index) =>
+      (index === 0 ? header.replace(/^\uFEFF/, "") : header).trim(),
+    );
 
   return rows
     .filter((values) => values.some((value) => value.trim() !== ""))
@@ -116,7 +119,9 @@ function compareSortOrder(first, second) {
   const firstOrder = Number(first.sort_order);
   const secondOrder = Number(second.sort_order);
   const normalizedFirst = Number.isFinite(firstOrder) ? firstOrder : Infinity;
-  const normalizedSecond = Number.isFinite(secondOrder) ? secondOrder : Infinity;
+  const normalizedSecond = Number.isFinite(secondOrder)
+    ? secondOrder
+    : Infinity;
   return normalizedFirst - normalizedSecond;
 }
 
@@ -181,12 +186,14 @@ function createDishCard(dish) {
 
   const description = localizedValue(dish, "desc");
   if (description) {
-    body.append(
-      createTextElement("p", "menu-dish__description", description),
-    );
+    body.append(createTextElement("p", "menu-dish__description", description));
   }
 
-  if (String(dish.available ?? "").trim().toUpperCase() === "FALSE") {
+  if (
+    String(dish.available ?? "")
+      .trim()
+      .toUpperCase() === "FALSE"
+  ) {
     body.append(
       createTextElement(
         "p",
@@ -204,13 +211,16 @@ function renderMenu() {
   const messages = text[currentLanguage];
   titleElement.textContent = messages.title;
 
-  if (loading) {
+  if (loading && !hasLoaded) {
+    loaderElement.removeAttribute("hidden");
     statusElement.textContent = messages.loading;
     dishesElement.replaceChildren();
     return;
   }
 
-  if (failed) {
+  loaderElement.setAttribute("hidden", "");
+
+  if (failed && !hasLoaded) {
     statusElement.replaceChildren();
     statusElement.append(document.createTextNode(messages.error));
     const retryButton = createTextElement(
@@ -266,6 +276,7 @@ function renderMenu() {
     section.append(categoryDishList);
     dishesElement.append(section);
   }
+  dishesElement.classList.add("is-visible");
 }
 
 async function loadMenu() {
@@ -275,7 +286,12 @@ async function loadMenu() {
 
   loading = true;
   failed = false;
-  renderMenu();
+  if (!hasLoaded) {
+    loaderElement.classList.remove("menu-page__loader--active");
+    void loaderElement.offsetWidth;
+    loaderElement.classList.add("menu-page__loader--active");
+    renderMenu();
+  }
 
   try {
     const [loadedCategories, loadedDishes] = await Promise.all([

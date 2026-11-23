@@ -13,10 +13,111 @@
     text-align: center;
 }
 
+.menu-page__feedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-page__loader {
+    display: block;
+    width: 9rem;
+    height: auto;
+    margin-bottom: 0.8rem;
+    overflow: visible;
+    color: var(--text-primary);
+}
+
+.menu-page__loader[hidden] {
+    display: none;
+}
+
+.menu-page__loader-plate,
+.menu-page__loader-ring,
+.menu-page__loader-fork,
+.menu-page__loader-knife {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.menu-page__loader--active .menu-page__loader-plate {
+    stroke-dasharray: 164;
+    stroke-dashoffset: 164;
+    animation: menu-plate-draw 0.5s ease-out forwards;
+}
+
+.menu-page__loader--active .menu-page__loader-ring {
+    stroke: var(--accent-color);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: menu-ring-pulse 1.8s ease-in-out 1s infinite;
+}
+
+.menu-page__loader--active .menu-page__loader-fork {
+    transform: translateX(-8px);
+    animation: menu-fork-in 0.3s cubic-bezier(0.2, 0.7, 0.25, 1) 0.5s forwards;
+}
+
+.menu-page__loader--active .menu-page__loader-knife {
+    transform: translateX(8px);
+    animation: menu-knife-in 0.3s cubic-bezier(0.2, 0.7, 0.25, 1) 0.7s forwards;
+}
+
+@keyframes menu-plate-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes menu-fork-in {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes menu-knife-in {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes menu-ring-pulse {
+    50% {
+        opacity: 0.55;
+        transform: scale(0.96);
+    }
+}
+
 .menu-page__status {
     margin-bottom: 2rem;
     color: var(--text-secondary);
     text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .menu-page__loader--active .menu-page__loader-plate {
+        stroke-dashoffset: 0;
+        animation: none;
+    }
+
+    .menu-page__loader--active .menu-page__loader-ring {
+        animation: none;
+    }
+
+    .menu-page__loader--active .menu-page__loader-fork,
+    .menu-page__loader--active .menu-page__loader-knife {
+        transform: none;
+        animation: none;
+    }
+
+    .menu-page__dishes {
+        transition: none;
+        transform: none;
+    }
 }
 
 .menu-page__retry {
@@ -29,7 +130,7 @@
     cursor: pointer;
 }
 
-.menu-page .menu-category + .menu-category {
+.menu-page .menu-category+.menu-category {
     margin-top: 3.2rem;
 }
 
@@ -122,3 +223,16 @@
         flex-wrap: wrap;
     }
 }
+
+
+.menu-page__dishes {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 350ms ease-out, transform 350ms ease-out;
+}
+
+.menu-page__dishes.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+

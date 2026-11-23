@@ -10,7 +10,25 @@
   <body data-theme="light">
     <main class="menu-page">
       <h1 class="menu-page__title" id="menu-title">მენიუ</h1>
-      <p class="menu-page__status" id="menu-status" role="status" aria-live="polite"></p>
+      <div class="menu-page__feedback" id="menu-feedback">
+        <svg
+          class="menu-page__loader"
+          id="menu-loader"
+          viewBox="0 0 120 88"
+          aria-hidden="true"
+          hidden
+        >
+          <circle class="menu-page__loader-plate" cx="60" cy="44" r="26" />
+          <circle class="menu-page__loader-ring" cx="60" cy="44" r="21" />
+          <g class="menu-page__loader-fork">
+            <path d="M12 14v15m5-15v15m5-15v15m-12 0c0 6 4 10 9.5 10V76" />
+          </g>
+          <g class="menu-page__loader-knife">
+            <path d="M103 14c9 7 9 20 0 26v36" />
+          </g>
+        </svg>
+        <p class="menu-page__status" id="menu-status" role="status" aria-live="polite"></p>
+      </div>
       <div class="menu-page__dishes" id="menu-dishes"></div>
     </main>
     <div id="site-footer"></div>
