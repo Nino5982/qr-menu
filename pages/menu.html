@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>მენიუ | კულინარი</title>
     <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/menu.css" />
   </head>
   <body data-theme="light">
+    <main class="menu-page">
+      <h1 class="menu-page__title" id="menu-title">მენიუ</h1>
+      <p class="menu-page__status" id="menu-status" role="status" aria-live="polite"></p>
+      <div class="menu-page__dishes" id="menu-dishes"></div>
+    </main>
     <div id="site-footer"></div>
+    <script type="module" src="../script/menu.js"></script>
     <script type="module" src="../script/footer.js"></script>
   </body>
 </html>

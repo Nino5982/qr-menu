@@ -1,0 +1,124 @@
+.menu-page {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2.4rem 0 3.2rem;
+}
+
+.menu-page__title {
+    margin-bottom: 2.4rem;
+    color: var(--text-primary);
+    font-size: 3.2rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.menu-page__status {
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.menu-page__retry {
+    display: block;
+    margin: 1.2rem auto 0;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius-md);
+    background-color: var(--accent-color);
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.menu-page .menu-category + .menu-category {
+    margin-top: 3.2rem;
+}
+
+.menu-page .menu-category__title {
+    margin-bottom: 1.6rem;
+    color: var(--text-primary);
+    font-size: 2.4rem;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.menu-page .menu-category__dishes {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.menu-page .menu-dish {
+    display: flex;
+    gap: 1.4rem;
+    min-width: 0;
+    padding: 1.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow-card);
+}
+
+.menu-page .menu-dish__image {
+    flex: 0 0 9rem;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 1.2rem;
+    object-fit: cover;
+}
+
+.menu-page .menu-dish__body {
+    flex: 1;
+    min-width: 0;
+}
+
+.menu-page .menu-dish__heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
+.menu-page .menu-dish__name {
+    min-width: 0;
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.menu-page .menu-dish__price {
+    flex: 0 0 auto;
+    color: var(--text-primary);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.menu-page .menu-dish__description {
+    margin-top: 0.8rem;
+    color: var(--text-secondary);
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+}
+
+.menu-page .menu-dish__availability {
+    display: inline-block;
+    margin-top: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+}
+
+@media (max-width: 400px) {
+    .menu-page .menu-dish {
+        gap: 1rem;
+        padding: 1.2rem;
+    }
+
+    .menu-page .menu-dish__image {
+        flex-basis: 7rem;
+        width: 7rem;
+        height: 7rem;
+    }
+
+    .menu-page .menu-dish__heading {
+        flex-wrap: wrap;
+    }
+}
